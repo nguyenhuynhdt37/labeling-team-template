@@ -210,6 +210,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5275 : INCORRECT_CLASS`**: Gán nhầm xe xe khách/xe buýt (`bus` #003C64) thành xe ô tô con (`car` #00008E), đồng thời vẽ thiếu phần thân xe.
 
 4. **[Frame 54](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=54)**:
+   - **`Issue #5281 : MISSING_OBJECT`**: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
    - **`Issue #1805 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
    - **`Issue #1806 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
    - **`Issue #1810 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
@@ -232,7 +233,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     2. Vẽ bổ sung xe ô tô (`car` #00008E tại #5273).
     3. Đổi nhãn từ xe ô tô (`car`) sang xe buýt / xe khách (`bus` #003C64 tại #5275) và bổ sung trọn vẹn thân xe.
   - **Frame 54:** Yêu cầu Annotator:
-    1. Vẽ bổ sung toàn bộ 3 xe ô tô (`car` #00008E tại #1805, #1806, #1810).
-    2. Vẽ bổ sung toàn bộ người đi bộ (`person` #DC143C) / người lái xe (`rider` #FF0000) còn thiếu trên ảnh.
+    1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5281).
+    2. Vẽ bổ sung toàn bộ 3 xe ô tô (`car` #00008E tại #1805, #1806, #1810).
+    3. Vẽ bổ sung toàn bộ người đi bộ (`person` #DC143C) / người lái xe (`rider` #FF0000) còn thiếu trên ảnh.
 
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53 và Frame 54 trước khi bàn giao cho Team Leader.
