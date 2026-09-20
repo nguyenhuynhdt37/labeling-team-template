@@ -16,10 +16,11 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | 2 | **`INCORRECT_CLASS`** | Gán sai Class | Vật thể có mask nhưng bị chọn sai nhãn (ví dụ: nhầm `person` thành `rider`, `building` thành `fence`, hoặc `car` thành `person`). | Đổi nhãn polygon về đúng class taxonomy. |
 | 3 | **`EXTRA_OBJECT`** | Đánh thừa đối tượng | Vẽ dư thừa mask cho đối tượng không tồn tại (False Positive) hoặc vật thể không thuộc bộ 19 nhãn quy định (ví dụ: cầu `bridge`, con vật, đồ vật ngoài scope). | Xóa hoàn toàn polygon/mask dư thừa. |
 | 4 | **`IMPROPER_BOUNDARY`** | Ranh giới lem nhem | Polygon vẽ tràn ra bầu trời/mặt đường hoặc cắt xẻ lấn quá nhiều vào vật thể, chưa phủ trọn vẹn bề mặt (vi phạm RULE 02). | Tỉa lại ranh giới mask bám sát biên thị giác của vật thể. |
-| 5 | **`OVERLAP_MASK`** | Chồng lấn Mask | Hai hoặc nhiều mask/class bị vẽ đè đúp lên nhau trên cùng một vùng pixel (vi phạm RULE 01). | Cắt tỉa hoặc xóa phần mask bị đè lấn. |
-| 6 | **`UNCERTAIN_CLASS`** | Phân vân Class | Nhãn quá mờ/xa không xác định chắc thuộc class nào (ví dụ: mờ không phân biệt `car` vs `truck`). | Đưa Lead/Mentor hỗ trợ chốt hoặc escalate. |
-| 7 | **`UNCERTAIN_BOUNDARY`** | Phân vân Ranh giới | Biết class nhưng ranh giới bị bóng râm che đen/mờ tối không xác định được pixel chính xác. | Thống nhất quy tắc bóc tách bóng râm với Lead/Mentor. |
-| 8 | **`UNCERTAIN_SMALL_OBJECT`** | Vật thể quá nhỏ | Vật thể quá xa/mỏng (như chi tiết cột nhỏ chân trời) không đủ bằng chứng hình ảnh để vẽ mask. | Đưa Lead/Mentor chốt ngưỡng gán nhãn tối thiểu. |
+| 5 | **`OVERLAP_MASK`** | Chồng lấn Mask | Hai hoặc nhiều mask/class khác nhau bị vẽ đè lấn lên nhau trên cùng một vùng pixel (vi phạm RULE 01). | Cắt tỉa hoặc xóa phần mask bị đè lấn. |
+| 6 | **`DUPLICATE_MASK`** | Vẽ đúp / Trùng lặp | Annotator vẽ 2 hoặc nhiều mask/polygon trùng đúp lên cùng 1 vật thể (nhân bản polygon dư thừa cho 1 đối tượng). | Xóa bớt các polygon bị trùng đúp, chỉ giữ lại 1 mask duy nhất. |
+| 7 | **`UNCERTAIN_CLASS`** | Phân vân Class | Nhãn quá mờ/xa không xác định chắc thuộc class nào (ví dụ: mờ không phân biệt `car` vs `truck`). | Đưa Lead/Mentor hỗ trợ chốt hoặc escalate. |
+| 8 | **`UNCERTAIN_BOUNDARY`** | Phân vân Ranh giới | Biết class nhưng ranh giới bị bóng râm che đen/mờ tối không xác định được pixel chính xác. | Thống nhất quy tắc bóc tách bóng râm với Lead/Mentor. |
+| 9 | **`UNCERTAIN_SMALL_OBJECT`** | Vật thể quá nhỏ | Vật thể quá xa/mỏng (như chi tiết cột nhỏ chân trời) không đủ bằng chứng hình ảnh để vẽ mask. | Đưa Lead/Mentor chốt ngưỡng gán nhãn tối thiểu. |
 
 ---
 
