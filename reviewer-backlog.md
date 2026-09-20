@@ -29,6 +29,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 1 | 7% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -170,3 +171,36 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 18:** Yêu cầu Annotator vẽ bổ sung cột / cột điện (`pole` #999999 tại #5182).
 
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1, Frame 2, Frame 9, Frame 15 và Frame 18 trước khi bàn giao cho Team Leader.
+
+---
+
+### JOB-1616
+
+- **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 1 ảnh (Frame 50)
+
+#### Minh chứng lỗi phát hiện / Issue tồn đọng:
+1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
+   - **`Issue #5184 : MISSING_OBJECT`**: Bỏ sót cột / cột đèn (`pole` #999999).
+   - **`Issue #5183 : MISSING_OBJECT`**: Bỏ sót hàng rào lưới (`fence` #BE9999).
+   - **`Issue #5185 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5186 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5187 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5188 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5189 : IMPROPER_BOUNDARY`**: Vẽ thiếu / chưa trọn vẹn đèn giao thông (`traffic_light` #FAAA1E).
+   - **`Issue #5190 : IMPROPER_BOUNDARY`**: Vẽ thiếu / chưa trọn vẹn đèn giao thông (`traffic_light` #FAAA1E).
+   - **`Issue #5205 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
+   - **`Issue #5206 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
+   - **`Issue #5207 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
+   - **`Issue #5208 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
+   - **`Issue #5209 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
+
+- **Hướng xử lý**: 
+  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
+  - **Frame 50:** Yêu cầu Annotator:
+    1. Vẽ bổ sung cột đèn (`pole` #999999 tại #5184) và hàng rào lưới (`fence` #BE9999 tại #5183).
+    2. Vẽ bổ sung toàn bộ 4 xe ô tô (`car` #00008E tại #5185, #5186, #5187, #5188).
+    3. Tỉa và vẽ phủ trọn vẹn đèn giao thông (`traffic_light` #FAAA1E tại #5189, #5190).
+    4. Xóa toàn bộ mask vạch kẻ / line đường đang bị đánh thừa (`#5205`, `#5206`, `#5207`, `#5208`, `#5209`), do vạch kẻ đường không nằm trong danh mục 19 nhãn được phép gán nhãn riêng.
+
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa 13 Issues tại Frame 50 trước khi bàn giao cho Team Leader.
