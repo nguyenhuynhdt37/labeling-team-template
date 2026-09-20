@@ -1,106 +1,57 @@
-# Problem backlog
+# Problem Backlog
 
-Những chỗ gặp trong lúc gán nhãn mà **guideline chưa trả lời được**, cộng các pain point về công cụ.
-
-Ghi ngay khi gặp, kể cả lúc chưa biết xử lý thế nào. Một edge case không được ghi lại thì
-mỗi người sẽ tự xử lý theo một kiểu — và đó là nguồn lớn nhất của nhãn không nhất quán.
-
-> Các mục bên dưới là **ví dụ**, tên và link CVAT đều giả. Mẫu trống để copy nằm cuối file.
-
-## Danh sách
-
-| Mã | Tóm tắt | Loại | Mục guideline | Trạng thái | Kết quả |
-|---|---|---|---|---|---|
-| [P-001](#p-001) | Người ngồi sau xe máy: box riêng hay gộp với người lái | Guideline mơ hồ | §3.2 | ✅ Đã chốt | [QĐ-001](so-quyet-dinh.md#qđ-001) |
-| [P-002](#p-002) | Xe bị che khuất hơn một nửa | Guideline chưa nói tới | §3.4 | ↗️ Hỏi BTC | — |
-| [P-003](#p-003) | Phải vẽ lại box y hệt qua nhiều frame liên tiếp | Pain point công cụ | — | 🗣️ Đang bàn | — |
-
-**Loại**
-
-| Loại | Nghĩa là |
-|---|---|
-| Guideline chưa nói tới | Tình huống không có trong guideline |
-| Guideline mơ hồ | Đọc guideline ra được hai cách hiểu trở lên |
-| Guideline mâu thuẫn | Hai mục trong guideline nói ngược nhau |
-| Pain point công cụ | Guideline rõ, nhưng làm trên CVAT chậm hoặc dễ sai |
-
-**Trạng thái:** 🔴 Mở · 🗣️ Đang bàn · ↗️ Hỏi BTC · ✅ Đã chốt (trỏ sang QĐ) · 🛠️ Làm tool (trỏ sang `source-tool/`) · ⚪ Bỏ (ghi lý do)
+Tập trung các lỗi gán nhãn thực tế phát sinh trên CVAT do Guideline chưa đề cập hoặc mơ hồ.
 
 ---
 
-## P-001
+## I. Bounding Box & 2D Annotation
 
-**Người ngồi sau xe máy: box riêng hay gộp chung với người lái**
+### P-001: Vật ở xa zoom lên thấy được
+- **Lỗi**: Chưa rõ vật thể ở xa kích thước nhỏ nhưng zoom lên thấy được thì vẽ bbox hay chỉ viết báo cáo.
+- **Minh chứng CVAT**: [Task 137 / Job 1401 - Frame 89](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=89)
+- **Guideline**: Chưa quy định ngưỡng kích thước (pixel threshold) hoặc quy chuẩn gán nhãn/báo cáo vật ở xa.
 
-- **Loại:** Guideline mơ hồ
-- **Mục guideline:** §3.2 — "mỗi người một bounding box"
-- **Người phát hiện:** @thanh-vien-b · 16/09/2026
-- **Link CVAT:**
-  - https://cvat.example.com/tasks/12/jobs/101?frame=37 — hai người, gần như chồng khít
-  - https://cvat.example.com/tasks/12/jobs/101?frame=112 — người ngồi sau chỉ lộ đầu
-- **Mô tả:** §3.2 nói mỗi người một box, nhưng hình minh hoạ trong guideline lại vẽ một box
-  cho cả xe máy lẫn người trên xe.
-- **Các cách hiểu:**
-  1. Theo câu chữ: người ngồi sau có box `nguoi` riêng.
-  2. Theo hình minh hoạ: không vẽ box `nguoi` cho ai đang ngồi trên xe.
-- **Xử lý tạm trong lúc chờ:** vẽ box riêng và gắn tag `can_xem_lai` để dễ lọc ra sửa.
-- **Kết quả:** ✅ [QĐ-001](so-quyet-dinh.md#qđ-001)
+### P-003: Xe ban đêm bị chói lóa đèn pha (Headlight Glare)
+- **Lỗi**: Chưa rõ BBox `car` ôm sát thân xe hay kéo rộng trùm lên cả vệt ánh sáng chói tỏa ra.
+- **Minh chứng CVAT**: 
+  - [Task 137 / Job 1401 - Frame 75](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=75)
+  - [Task 137 / Job 1401 - Frame 87](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=87)
+- **Guideline**: §3 (Quy tắc Bounding Box) chưa làm rõ ranh giới BBox đối với phản xạ / vệt sáng chói lóa ban đêm.
 
-## P-002
+### P-004: Đèn giao thông ở xa chỉ lấp ló bóng đèn
+- **Lỗi**: Chưa rõ đèn giao thông (`traffic_light`) ở xa chỉ thấy đốm sáng bóng đèn có khoanh box không và khoanh ôm đốm sáng hay cả hộp đèn.
+- **Minh chứng CVAT**: 
+  - [Task 137 / Job 1401 - Frame 76](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=76)
+  - [Task 137 / Job 1401 - Frame 77](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=77)
+  - [Task 137 / Job 1401 - Frame 87](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=87)
+  - [Task 137 / Job 1401 - Frame 89](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=89)
+- **Guideline**: §3 mơ hồ về bằng chứng thị giác đối với `traffic_light` bị che khuất / lấp ló ở xa.
 
-**Xe bị che khuất hơn một nửa**
+### P-005: Xe bị bóng tối/vùng tối che khuất chỉ thấy dáng mờ
+- **Lỗi**: Chưa rõ xe bị vùng tối ban đêm che gần hết chỉ còn phom mờ có vẽ BBox không.
+- **Minh chứng CVAT**: *(Cần bổ sung link khi gặp)*
+- **Guideline**: §3 mơ hồ về quy chuẩn gán nhãn `occluded` cho đối tượng trong điều kiện cực kỳ thiếu sáng.
 
-- **Loại:** Guideline chưa nói tới
-- **Mục guideline:** §3.4 — chỉ nói về vật thể bị cắt ở mép ảnh, không nói về bị che
-- **Người phát hiện:** @thanh-vien-c · 17/09/2026
-- **Link CVAT:**
-  - https://cvat.example.com/tasks/12/jobs/103?frame=8 — ô tô sau xe buýt, lộ khoảng 30%
-  - https://cvat.example.com/tasks/12/jobs/103?frame=64 — xe máy sau cột điện, lộ khoảng 50%
-- **Mô tả:** Không rõ có gán nhãn vật thể bị che không, và nếu có thì box ôm phần nhìn thấy
-  hay ôm cả phần ước lượng bị che.
-- **Các cách hiểu:**
-  1. Bỏ qua khi lộ dưới 50%.
-  2. Luôn gán, box chỉ ôm phần nhìn thấy.
-  3. Luôn gán, box ôm cả phần ước lượng.
-- **Xử lý tạm trong lúc chờ:** dừng job 103, chuyển sang job khác ít ca che khuất.
-- **Kết quả:** ↗️ Đã hỏi BTC ngày 18/09/2026, chờ trả lời.
-
-## P-003
-
-**Phải vẽ lại box y hệt qua nhiều frame liên tiếp**
-
-- **Loại:** Pain point công cụ
-- **Mục guideline:** —
-- **Người phát hiện:** @thanh-vien-d · 18/09/2026
-- **Link CVAT:** https://cvat.example.com/tasks/12/jobs/105?frame=200 — frame 200–260, xe đỗ không di chuyển
-- **Mô tả:** Ảnh chụp liên tiếp từ camera cố định. Xe đỗ bên đường xuất hiện y nguyên ở hàng chục
-  frame, annotator phải vẽ lại ở từng frame. Ước tính chiếm ~40% thời gian job 105.
-- **Hướng đang cân nhắc:**
-  1. Dùng chế độ *Track* sẵn có của CVAT — cần thử xem có hợp với dữ liệu dạng ảnh rời không.
-  2. Viết script đọc file export của CVAT, nhân box sang các frame kế tiếp, rồi import lại.
-- **Kết quả:** 🗣️ Đang bàn. Nếu chọn hướng 2 thì đổi trạng thái sang 🛠️ và làm trong
-  [`source-tool/`](source-tool/).
+### P-006: Làn đường phụ có chiều rộng hẹp ô tô không lọt vừa
+- **Lỗi**: Chưa rõ làn đường phụ/lối hẹp ô tô không lưu thông vừa thì gán Polygon `area/drivable` hay `area/alternative`.
+- **Minh chứng CVAT**: [Task 137 / Job 1401 - Frame 96](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=96)
+- **Guideline**: §2 & §4.1 chưa tiêu chuẩn hóa định nghĩa bề rộng tối thiểu của `area/drivable` vs `area/alternative`.
 
 ---
 
-## Mẫu để copy
+## II. Semantic Segmentation
 
-```markdown
-## P-NNN
+### P-101: Phân biệt `road` vs `sidewalk` tại làn đường hẹp
+- **Lỗi**: Chưa rõ các pixel mặt đường tại làn hẹp ô tô không lọt vừa gán class `road` hay `sidewalk`.
+- **Minh chứng CVAT**: [Task 137 / Job 1401 - Frame 96](https://cvat.note.transformerlabs.ai/tasks/137/jobs/1401?frame=96)
+- **Guideline**: §4 (Cặp class dễ nhầm `road vs sidewalk`) chưa quy định về làn đường hẹp.
 
-**Tóm tắt một dòng**
+### P-102: Hàng rào/lan can kết cấu trên cầu vượt
+- **Lỗi**: Chưa rõ hàng rào/lan can khung thép trên cầu vượt có tô mask không và gán `fence`, `wall` hay `building`.
+- **Minh chứng CVAT**: [Task 191 / Job 1617 - Frame 82](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1617?frame=82)
+- **Guideline**: §1 & §4 chưa định nghĩa phạm vi (`UNCERTAIN_SCOPE`) cho kết cấu bảo vệ trên cầu cao.
 
-- **Loại:** Guideline chưa nói tới | Guideline mơ hồ | Guideline mâu thuẫn | Pain point công cụ
-- **Mục guideline:** §
-- **Người phát hiện:** @ · dd/mm/yyyy
-- **Link CVAT:** (bỏ trống nếu không có)
-  - https://…/tasks/<id>/jobs/<id>?frame=<n> — frame này có gì
-- **Mô tả:**
-- **Các cách hiểu:** (với pain point công cụ thì ghi **Hướng đang cân nhắc:**)
-  1.
-  2.
-- **Xử lý tạm trong lúc chờ:**
-- **Kết quả:** 🔴 Mở
-```
-
-Nhớ thêm một dòng vào bảng **Danh sách** ở đầu file.
+### P-103: Phân biệt `building` vs `fence` khi hàng rào bao quanh tòa nhà
+- **Lỗi**: Annotator hay gộp bôi toàn bộ hàng rào phía trước tòa nhà thành `building`.
+- **Minh chứng CVAT**: [Task 191 / Job 1615 - Frame 25](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=25)
+- **Guideline**: §4 mơ hồ trong việc yêu cầu bóc tách riêng mask `fence` nằm sát/bao quanh `building`.

@@ -1,0 +1,117 @@
+# Reviewer Backlog - Semantic Segmentation & 2D Annotation
+
+Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn tồn (Backlog Issues) trên hệ thống CVAT trước khi bàn giao cho Team Leader.
+
+---
+
+## 📊 Bảng tổng hợp Group Job
+
+| Group Job | Task ID | Job ID | Annotator | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
+
+---
+
+## 📂 Đánh giá chi tiết theo từng Group Job
+
+### JOB-1615
+
+- **Task ID**: 191 | **Job ID**: 1615 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Kiểm mẫu**: 20/100 ảnh | **Số ảnh lỗi**: 15 ảnh (Frame 27, Frame 25, Frame 28, Frame 29, Frame 30, Frame 31, Frame 32, Frame 33, Frame 34, Frame 35, Frame 36, Frame 39, Frame 40, Frame 41, Frame 42)
+
+#### Minh chứng lỗi phát hiện / Issue tồn đọng:
+1. **[Frame 27](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=27)**:
+   - **`Issue #5086 : INCORRECT_CLASS`** *(Tọa độ x:284, y:241)*: Nhãn `building` (#464646) vẽ tòa nhà chưa hết (chưa bám trọn vẹn bề mặt công trình/tòa nhà).
+   - **`Issue #5085 : INCORRECT_CLASS`** *(Tọa độ x:824, y:243)*: Gán nhầm `pole` (#999999 - cột điện/cột đèn) thành `building` (#464646 - tòa nhà).
+   - **`Issue #5084 : INCORRECT_CLASS`** *(Tọa độ x:1103, y:281)*: Gán nhầm `pole` (#999999 - cột điện/cột biển báo) thành `building` (#464646 - tòa nhà).
+   - **`Issue #5083 : MISSING_OBJECT`** *(Tọa độ x:1202, y:252)*: Gán nhầm `pole` (#999999 - cột) thành `building` (#464646 - tòa nhà).
+
+2. **[Frame 25](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=25)**:
+   - **`Issue #5091 : INCORRECT_CLASS`** *(Tọa độ x:1070, y:285)*: Gán sai class hàng rào sắt (`fence` #BE9999) thành tòa nhà (`building` #464646).
+
+3. **[Frame 28](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=28)**:
+   - **`Issue #5100 : UNCERTAIN_BOUNDARY`** *(Tọa độ x:426, y:308)*: Gốc cây (`vegetation` #6B8E23) bị che bóng đen/bóng râm không thấy rõ ranh giới pixel.
+   - **`Issue #5098 : MISSING_OBJECT`** *(Tọa độ x:22, y:343)*: Bỏ sót hàng rào sắt (`fence` #BE9999).
+   - **`Issue #5097 : MISSING_OBJECT`** *(Tọa độ x:80, y:398)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+   - **`Issue #5096 : MISSING_OBJECT`** *(Tọa độ x:259, y:368)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+   - **`Issue #5095 : MISSING_OBJECT`** *(Tọa độ x:819, y:378)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+
+4. **[Frame 29](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=29)**:
+   - **`Issue #5103 : MISSING_OBJECT`** *(Tọa độ x:462, y:331)*: Vẽ thiếu ô tô (`car` #00008E - chưa bám trọn vẹn phần thân xe).
+   - **`Issue #5105 : MISSING_OBJECT`** *(Tọa độ x:279, y:365)*: Chưa vẽ vỉa hè (`sidewalk` #F423E8).
+
+5. **[Frame 30](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=30)**:
+   - **`Issue #5108 : MISSING_OBJECT`** *(Tọa độ x:62, y:357)*: Chưa vẽ vỉa hè (`sidewalk` #F423E8).
+
+6. **[Frame 31](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=31)**:
+   - **`Issue #5112 : INCORRECT_CLASS`** *(Tọa độ x:615, y:86)*: Gán nhầm cột (`pole` #999999) thành tòa nhà (`building` #464646).
+   - **`Issue #5114 : INCORRECT_CLASS`** *(Tọa độ x:587, y:79)*: Gán nhầm biển báo giao thông (`traffic_sign` #DCDC00) thành tòa nhà (`building` #464646).
+   - **`Issue #5111 : INCORRECT_CLASS`** *(Tọa độ x:613, y:59)*: Gán nhầm biển báo giao thông (`traffic_sign` #DCDC00) thành tòa nhà (`building` #464646).
+
+7. **[Frame 32](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=32)**:
+   - **`Issue #5116 : MISSING_OBJECT`** *(Tọa độ x:407, y:384)*: Bỏ sót người đi bộ (`person` #DC143C).
+
+8. **[Frame 33](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=33)**:
+   - **`Issue #5117 : MISSING_OBJECT`** *(Tọa độ x:1100, y:393)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+   - **`Issue #5125 : MISSING_OBJECT`** *(Tọa độ x:191, y:330)*: Bỏ sót hàng rào kín (`fence` #BE9999).
+   - **`Issue #5126 : MISSING_OBJECT`** *(Tọa độ x:260, y:287)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5124 : MISSING_OBJECT`** *(Tọa độ x:96, y:322)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5123 : MISSING_OBJECT`** *(Tọa độ x:668, y:317)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5122 : MISSING_OBJECT`** *(Tọa độ x:760, y:310)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5121 : MISSING_OBJECT`** *(Tọa độ x:1187, y:299)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5120 : MISSING_OBJECT`** *(Tọa độ x:1252, y:271)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5119 : MISSING_OBJECT`** *(Tọa độ x:1037, y:312)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5118 : MISSING_OBJECT`** *(Tọa độ x:139, y:369)*: Bỏ sót cột (`pole` #999999).
+
+9. **[Frame 34](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=34)**:
+   - **`Issue #5131 : MISSING_OBJECT`** *(Tọa độ x:461, y:188)*: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
+   - **`Issue #5127 : MISSING_OBJECT`** *(Tọa độ x:466, y:319)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+   - **`Issue #5130 : MISSING_OBJECT`** *(Tọa độ x:428, y:275)*: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5129 : MISSING_OBJECT`** *(Tọa độ x:471, y:267)*: Bỏ sót cột (`pole` #999999).
+   - **`Issue #5128 : MISSING_OBJECT`** *(Tọa độ x:758, y:171)*: Bỏ sót cột (`pole` #999999).
+
+10. **[Frame 35](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=35)**:
+    - **`Issue #5132 : MISSING_OBJECT`** *(Tọa độ x:692, y:409)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+
+11. **[Frame 36](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=36)**:
+    - **`Issue #5135 : MISSING_OBJECT`** *(Tọa độ x:1022, y:168)*: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
+    - **`Issue #5134 : MISSING_OBJECT`** *(Tọa độ x:836, y:384)*: Bỏ sót bề mặt tự nhiên / đất đá (`terrain` #98FB98).
+    - **`Issue #5133 : MISSING_OBJECT`** *(Tọa độ x:319, y:430)*: Bỏ sót bề mặt tự nhiên / đất đá (`terrain` #98FB98).
+
+12. **[Frame 39](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=39)**:
+    - **`Issue #5137 : MISSING_OBJECT`** *(Tọa độ x:76, y:310)*: Bỏ sót tường đứng (`wall` #66669C).
+    - **`Issue #5136 : UNCERTAIN_BOUNDARY`** *(Tọa độ x:984, y:405)*: Thiếu mask mặt đường (`road` #804080).
+
+13. **[Frame 40](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=40)**:
+    - **`Issue #5138 : MISSING_OBJECT`** *(Tọa độ x:910, y:402)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+
+14. **[Frame 41](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=41)**:
+    - **`Issue #5143 : MISSING_OBJECT`** *(Tọa độ x:38, y:416)*: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
+    - **`Issue #5142 : MISSING_OBJECT`** *(Tọa độ x:865, y:544)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
+    - **`Issue #5141 : UNCERTAIN_BOUNDARY`** *(Tọa độ x:479, y:428)*: Chưa vẽ hết cây / thảm thực vật (`vegetation` #6B8E23).
+    - **`Issue #5139 : INCORRECT_CLASS`** *(Tọa độ x:69, y:529)*: Gán nhầm người điều khiển phương tiện (`rider` #FF0000) thành người đi bộ (`person` #DC143C).
+
+15. **[Frame 42](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=42)**:
+    - **`Issue #5171 : MISSING_OBJECT`** *(Tọa độ x:1235, y:357)*: Bỏ sót cột (`pole` #999999).
+    - **`Issue #5170 : MISSING_OBJECT`** *(Tọa độ x:336, y:388)*: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
+    - **`Issue #5169 : MISSING_OBJECT`** *(Tọa độ x:84, y:423)*: Bỏ sót lề đường / vỉa hè (`sidewalk` #F423E8).
+
+- **Hướng xử lý**: 
+  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
+  - **Frame 27:** Yêu cầu tỉa trọn vẹn bề mặt `building` (#5086) và đổi nhãn 3 cột từ `building` sang `pole` (#5085, #5084, #5083).
+  - **Frame 25:** Yêu cầu bóc tách và đổi nhãn hàng rào sắt từ `building` sang `fence` (#5091).
+  - **Frame 28:** Đưa Mentor/Lead hỗ trợ chốt ranh giới gốc cây bị bóng che tối (#5100); Yêu cầu vẽ bổ sung hàng rào sắt (`fence` #BE9999 tại #5098) và vỉa hè (`sidewalk` #F423E8 tại #5097, #5096, #5095).
+  - **Frame 29:** Yêu cầu vẽ phủ trọn vẹn thân xe ô tô (`car` #00008E tại #5103) và vẽ bổ sung vỉa hè (`sidewalk` #F423E8 tại #5105).
+  - **Frame 30:** Yêu cầu vẽ bổ sung vỉa hè (`sidewalk` #F423E8 tại #5108).
+  - **Frame 31:** Yêu cầu đổi nhãn cột từ `building` sang `pole` (#5112) và đổi nhãn 2 biển báo từ `building` sang `traffic_sign` (#5114, #5111).
+  - **Frame 32:** Yêu cầu vẽ bổ sung người đi bộ (`person` #DC143C tại #5116).
+  - **Frame 33:** Yêu cầu vẽ bổ sung vỉa hè (`sidewalk` #F423E8 tại #5117), hàng rào kín (`fence` #BE9999 tại #5125) và toàn bộ 8 cột (`pole` #999999 từ #5118 đến #5126).
+  - **Frame 34:** Yêu cầu vẽ bổ sung biển báo (`traffic_sign` #DCDC00 tại #5131), vỉa hè (`sidewalk` #F423E8 tại #5127), xe ô tô (`car` #00008E tại #5130) và 2 cột (`pole` #999999 tại #5129, #5128).
+  - **Frame 35:** Yêu cầu vẽ bổ sung vỉa hè (`sidewalk` #F423E8 tại #5132).
+  - **Frame 36:** Yêu cầu vẽ bổ sung thảm thực vật (`vegetation` #6B8E23 tại #5135) và đất đá tự nhiên (`terrain` #98FB98 tại #5134, #5133).
+  - **Frame 39:** Yêu cầu vẽ bổ sung tường đứng (`wall` #66669C tại #5137) và bám biên phủ trọn vẹn mặt đường (`road` #804080 tại #5136).
+  - **Frame 40:** Yêu cầu vẽ bổ sung vỉa hè (`sidewalk` #F423E8 tại #5138).
+  - **Frame 41:** Yêu cầu vẽ bổ sung biển báo (`traffic_sign` #DCDC00 tại #5143), vỉa hè (`sidewalk` #F423E8 tại #5142), tô trọn vẹn thảm thực vật (`vegetation` #6B8E23 tại #5141) và đổi nhãn từ `person` sang `rider` (#FF0000 tại #5139).
+  - **Frame 42:** Yêu cầu vẽ bổ sung cột (`pole` #999999 tại #5171), cây / thảm thực vật (`vegetation` #6B8E23 tại #5170) và lề đường / vỉa hè (`sidewalk` #F423E8 tại #5169).
+
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 25 đến Frame 42 trước khi bàn giao cho Team Leader.
