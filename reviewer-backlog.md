@@ -164,7 +164,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 16/100 ảnh | **Số ảnh lỗi**: 16 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63, Frame 64, Frame 65, Frame 67)
+- **Kiểm mẫu**: 17/100 ảnh | **Số ảnh lỗi**: 17 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63, Frame 64, Frame 65, Frame 67, Frame 69)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -253,6 +253,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - `**Issue #5332 : MISSING_OBJECT**`: Bỏ sót hàng rào đặc / rào chắn không lỗ (`fence` #BE9999).
   - `**Issue #5333 : MISSING_OBJECT**`: Bỏ sót hàng rào lưới / bờ rào có lỗ (`fence` #BE9999).
   - `**Issue #5334 : MISSING_OBJECT**`: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
+17. [**Frame 69**](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=69):
+  - `**Issue #5335 : MISSING_OBJECT**`: Chưa gán nhãn cho toàn bộ bức ảnh (bỏ sót chưa annotate Frame 69).
 
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
@@ -317,5 +319,6 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     1. Vẽ bổ sung hàng rào lưới / bờ rào có lỗ (`fence` #BE9999 tại #5331, #5333).
     2. Vẽ bổ sung hàng rào đặc / rào chắn không lỗ (`fence` #BE9999 tại #5332).
     3. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5334).
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 67 trước khi bàn giao cho Team Leader.
+  - **Frame 69:** Yêu cầu Annotator gán nhãn đầy đủ cho toàn bộ các đối tượng xuất hiện trên Frame 69 (tại #5335).
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 69 trước khi bàn giao cho Team Leader.
 
