@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 12 | 80% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 13 | 87% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 12 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 13 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -257,6 +257,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     - **`Issue #5314 : MISSING_OBJECT`**: Bỏ sót công trình / tòa nhà (`building` #464646).
     - **`Issue #5315 : MISSING_OBJECT`**: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
 
+13. **[Frame 63](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=63)**:
+    - **`Issue #5316 : MISSING_OBJECT`**: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -304,5 +307,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 62:** Yêu cầu Annotator:
     1. Vẽ bổ sung tòa nhà / công trình (`building` #464646 tại #5314).
     2. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #5315).
+  - **Frame 63:** Yêu cầu Annotator:
+    1. Vẽ bổ sung biển báo giao thông (`traffic_sign` #DCDC00 tại #5316).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 62 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 63 trước khi bàn giao cho Team Leader.
