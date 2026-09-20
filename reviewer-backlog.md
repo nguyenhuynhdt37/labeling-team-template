@@ -239,7 +239,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - `**Issue #5320 : MISSING_OBJECT**`: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
   - `**Issue #5321 : MISSING_OBJECT**`: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
   - `**Issue #5322 : MISSING_OBJECT**`: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
-  - `**Issue #5323 : MISSING_OBJECT**`: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
+  - `**Issue #5323 : IMPROPER_BOUNDARY**`: Mask bầu trời (`sky` #708090) đánh lem nhem, lấn ranh giới đè lên vật thể khác.
   - `**Issue #5324 : MISSING_OBJECT**`: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
 
 - **Hướng xử lý**: 
@@ -294,6 +294,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 64:** Yêu cầu Annotator:
     1. Vẽ bổ sung 3 biển báo giao thông (`traffic_sign` #DCDC00 tại #5318, #5320, #5321).
     2. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5322).
-    3. Vẽ bổ sung 2 đèn giao thông (`traffic_light` #FAAA1E tại #5323, #5324).
+    3. Tỉa và chỉnh lại ranh giới mask bầu trời (`sky` #708090 tại #5323), cắt tỉa phần lem nhem lấn vào vật thể.
+    4. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #5324).
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 64 trước khi bàn giao cho Team Leader.
 
