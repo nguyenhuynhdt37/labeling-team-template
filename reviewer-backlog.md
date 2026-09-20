@@ -122,7 +122,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1614
 
 - **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 2 ảnh (Frame 1, Frame 2)
+- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 3 ảnh (Frame 1, Frame 2, Frame 9)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 1](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=1)**:
@@ -131,9 +131,13 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 2. **[Frame 2](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=2)**:
    - **`Issue #5177 : MISSING_OBJECT`** *(Tọa độ x:224, y:267)*: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
 
+3. **[Frame 9](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=9)**:
+   - **`Issue #5178 : INCORRECT_CLASS`** *(Tọa độ x:860, y:140)*: Đánh nhầm nhãn cầu (`bridge` #966464) thành tòa nhà (`building` #464646).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
   - **Frame 1:** Yêu cầu Annotator vẽ bổ sung cột (`pole` #999999 tại #5175).
   - **Frame 2:** Yêu cầu Annotator vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5177).
+  - **Frame 9:** Yêu cầu Annotator đổi nhãn từ tòa nhà (`building` #464646) sang cầu (`bridge` #966464 tại #5178).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1 và Frame 2 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1, Frame 2 và Frame 9 trước khi bàn giao cho Team Leader.
