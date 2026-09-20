@@ -9,6 +9,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | Group Job | Task ID | Job ID | Annotator | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 1 | 4% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -115,3 +116,20 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 42:** Yêu cầu vẽ bổ sung cột (`pole` #999999 tại #5171), cây / thảm thực vật (`vegetation` #6B8E23 tại #5170) và lề đường / vỉa hè (`sidewalk` #F423E8 tại #5169).
 
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 25 đến Frame 42 trước khi bàn giao cho Team Leader.
+
+---
+
+### JOB-1614
+
+- **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 1 ảnh (Frame 1)
+
+#### Minh chứng lỗi phát hiện / Issue tồn đọng:
+1. **[Frame 1](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=1)**:
+   - **`Issue #5175 : MISSING_OBJECT`** *(Tọa độ x:1199, y:260)*: Bỏ sót cột (`pole` #999999).
+
+- **Hướng xử lý**: 
+  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
+  - **Frame 1:** Yêu cầu Annotator vẽ bổ sung cột (`pole` #999999 tại #5175).
+
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa Issue ở Frame 1 trước khi bàn giao cho Team Leader.
