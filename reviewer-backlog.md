@@ -251,6 +251,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 16. [**Frame 67**](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=67):
   - `**Issue #5331 : MISSING_OBJECT**`: Bỏ sót hàng rào lưới / hàng rào có lỗ (`fence` #BE9999).
   - `**Issue #5332 : MISSING_OBJECT**`: Bỏ sót hàng rào đặc / rào chắn không lỗ (`fence` #BE9999).
+  - `**Issue #5333 : MISSING_OBJECT**`: Bỏ sót hàng rào lưới / bờ rào có lỗ (`fence` #BE9999).
+  - `**Issue #5334 : MISSING_OBJECT**`: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
 
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
@@ -312,7 +314,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     4. Vẽ bổ sung tường / bờ tường (`wall` #666666 tại #5328, #5329).
     5. Vẽ bổ sung xe buýt / xe khách (`bus` #003C64 tại #5330).
   - **Frame 67:** Yêu cầu Annotator:
-    1. Vẽ bổ sung hàng rào lưới / có lỗ (`fence` #BE9999 tại #5331).
+    1. Vẽ bổ sung hàng rào lưới / bờ rào có lỗ (`fence` #BE9999 tại #5331, #5333).
     2. Vẽ bổ sung hàng rào đặc / rào chắn không lỗ (`fence` #BE9999 tại #5332).
+    3. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5334).
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 67 trước khi bàn giao cho Team Leader.
 
