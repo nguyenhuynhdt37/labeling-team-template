@@ -132,12 +132,12 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5177 : MISSING_OBJECT`** *(Tọa độ x:224, y:267)*: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
 
 3. **[Frame 9](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=9)**:
-   - **`Issue #5178 : INCORRECT_CLASS`** *(Tọa độ x:860, y:140)*: Đánh nhầm nhãn cầu (`bridge` #966464) thành tòa nhà (`building` #464646).
+   - **`Issue #5178 : INCORRECT_CLASS`** *(Tọa độ x:860, y:140)*: Đánh nhầm đối tượng cầu thành tòa nhà (`building` #464646). Do cầu (`bridge`) không thuộc bộ 19 nhãn quy định, Annotator không được tự ý ép vào nhãn `building`.
 
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
   - **Frame 1:** Yêu cầu Annotator vẽ bổ sung cột (`pole` #999999 tại #5175).
   - **Frame 2:** Yêu cầu Annotator vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5177).
-  - **Frame 9:** Yêu cầu Annotator đổi nhãn từ tòa nhà (`building` #464646) sang cầu (`bridge` #966464 tại #5178).
+  - **Frame 9:** Yêu cầu Annotator xóa mask đối tượng cầu đang bị gắn ép sai sang nhãn tòa nhà (`building` #464646 tại #5178), vì cầu không nằm trong danh mục 19 nhãn được phép gán.
 
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1, Frame 2 và Frame 9 trước khi bàn giao cho Team Leader.
