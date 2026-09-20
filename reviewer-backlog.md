@@ -198,6 +198,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 2. **[Frame 52](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=52)**:
    - **`Issue #5079 : MISSING_OBJECT`**: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
+   - **`Issue #5269 : MISSING_OBJECT`**: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
    - **`Issue #1747 : MISSING_OBJECT`**: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
    - **`Issue #1750 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
    - **`Issue #5211 : MISSING_OBJECT`**: Bỏ sót không đánh nhãn người đi bộ (`person` #DC143C) / người điều khiển phương tiện (`rider` #FF0000).
@@ -211,7 +212,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     4. Xóa toàn bộ mask vạch kẻ / line đường đang bị đánh thừa (`#5205`, `#5206`, `#5207`, `#5208`, `#5209`), do vạch kẻ đường không nằm trong danh mục 19 nhãn được phép gán nhãn riêng.
   - **Frame 52:** Yêu cầu Annotator:
     1. Vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5079).
-    2. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #1747).
+    2. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #5269 và #1747).
     3. Vẽ bổ sung xe ô tô (`car` #00008E tại #1750).
     4. Vẽ bổ sung toàn bộ người đi bộ (`person` #DC143C) / người lái xe (`rider` #FF0000) còn thiếu trên ảnh.
 
