@@ -4,12 +4,31 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 ---
 
+## 📋 Quy chuẩn Mã Issue Tags chính thức (QA/QC Issue Taxonomy)
+
+Để đảm bảo tính nhất quán tuyệt đối trong quá trình kiểm định chất lượng (QA/QC Audit) và ghi log backlog, toàn bộ Reviewer và Annotator **BẮT BUỘC** phải tuân thủ danh mục Mã Issue Tags chính thức dưới đây. Tuyệt đối không tự ý đặt tag tự do gây sai lệch báo cáo.
+
+### Bảng danh mục Issue Tags Tiêu chuẩn & Bổ sung
+
+| STT | Mã Issue Tag | Nhóm lỗi / Mục đích | Mô tả chi tiết & Trường hợp áp dụng thực tế | Hướng xử lý yêu cầu Annotator |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | **`MISSING_OBJECT`** | Bỏ sót đối tượng | Phát hiện vùng/vật thể rõ ràng trong ảnh thuộc 19 nhãn taxonomy nhưng Annotator chưa vẽ mask/polygon. | Vẽ bổ sung polygon/mask đúng class. |
+| 2 | **`INCORRECT_CLASS`** | Gán sai Class | Vật thể có mask nhưng bị chọn sai nhãn (ví dụ: nhầm `person` thành `rider`, `building` thành `fence`, hoặc `car` thành `person`). | Đổi nhãn polygon về đúng class taxonomy. |
+| 3 | **`EXTRA_OBJECT`** | Đánh thừa đối tượng | Vẽ dư thừa mask cho đối tượng không tồn tại (False Positive) hoặc vật thể không thuộc bộ 19 nhãn quy định (ví dụ: cầu `bridge`, con vật, đồ vật ngoài scope). | Xóa hoàn toàn polygon/mask dư thừa. |
+| 4 | **`IMPROPER_BOUNDARY`** | Ranh giới lem nhem | Polygon vẽ tràn ra bầu trời/mặt đường hoặc cắt xẻ lấn quá nhiều vào vật thể, chưa phủ trọn vẹn bề mặt (vi phạm RULE 02). | Tỉa lại ranh giới mask bám sát biên thị giác của vật thể. |
+| 5 | **`OVERLAP_MASK`** | Chồng lấn Mask | Hai hoặc nhiều mask/class bị vẽ đè đúp lên nhau trên cùng một vùng pixel (vi phạm RULE 01). | Cắt tỉa hoặc xóa phần mask bị đè lấn. |
+| 6 | **`UNCERTAIN_CLASS`** | Phân vân Class | Nhãn quá mờ/xa không xác định chắc thuộc class nào (ví dụ: mờ không phân biệt `car` vs `truck`). | Đưa Lead/Mentor hỗ trợ chốt hoặc escalate. |
+| 7 | **`UNCERTAIN_BOUNDARY`** | Phân vân Ranh giới | Biết class nhưng ranh giới bị bóng râm che đen/mờ tối không xác định được pixel chính xác. | Thống nhất quy tắc bóc tách bóng râm với Lead/Mentor. |
+| 8 | **`UNCERTAIN_SMALL_OBJECT`** | Vật thể quá nhỏ | Vật thể quá xa/mỏng (như chi tiết cột nhỏ chân trời) không đủ bằng chứng hình ảnh để vẽ mask. | Đưa Lead/Mentor chốt ngưỡng gán nhãn tối thiểu. |
+
+---
+
 ## 📊 Bảng tổng hợp Group Job
 
 | Group Job | Task ID | Job ID | Annotator | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 2 | 8% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -22,10 +41,10 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 27](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=27)**:
-   - **`Issue #5086 : INCORRECT_CLASS`** *(Tọa độ x:284, y:241)*: Nhãn `building` (#464646) vẽ tòa nhà chưa hết (chưa bám trọn vẹn bề mặt công trình/tòa nhà).
+   - **`Issue #5086 : IMPROPER_BOUNDARY`** *(Tọa độ x:284, y:241)*: Nhãn `building` (#464646) vẽ tòa nhà chưa hết (chưa bám trọn vẹn bề mặt công trình/tòa nhà).
    - **`Issue #5085 : INCORRECT_CLASS`** *(Tọa độ x:824, y:243)*: Gán nhầm `pole` (#999999 - cột điện/cột đèn) thành `building` (#464646 - tòa nhà).
    - **`Issue #5084 : INCORRECT_CLASS`** *(Tọa độ x:1103, y:281)*: Gán nhầm `pole` (#999999 - cột điện/cột biển báo) thành `building` (#464646 - tòa nhà).
-   - **`Issue #5083 : MISSING_OBJECT`** *(Tọa độ x:1202, y:252)*: Gán nhầm `pole` (#999999 - cột) thành `building` (#464646 - tòa nhà).
+   - **`Issue #5083 : INCORRECT_CLASS`** *(Tọa độ x:1202, y:252)*: Gán nhầm `pole` (#999999 - cột) thành `building` (#464646 - tòa nhà).
 
 2. **[Frame 25](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=25)**:
    - **`Issue #5091 : INCORRECT_CLASS`** *(Tọa độ x:1070, y:285)*: Gán sai class hàng rào sắt (`fence` #BE9999) thành tòa nhà (`building` #464646).
@@ -38,7 +57,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5095 : MISSING_OBJECT`** *(Tọa độ x:819, y:378)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
 
 4. **[Frame 29](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=29)**:
-   - **`Issue #5103 : MISSING_OBJECT`** *(Tọa độ x:462, y:331)*: Vẽ thiếu ô tô (`car` #00008E - chưa bám trọn vẹn phần thân xe).
+   - **`Issue #5103 : IMPROPER_BOUNDARY`** *(Tọa độ x:462, y:331)*: Vẽ thiếu ô tô (`car` #00008E - chưa bám trọn vẹn phần thân xe).
    - **`Issue #5105 : MISSING_OBJECT`** *(Tọa độ x:279, y:365)*: Chưa vẽ vỉa hè (`sidewalk` #F423E8).
 
 5. **[Frame 30](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=30)**:
@@ -81,7 +100,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 12. **[Frame 39](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=39)**:
     - **`Issue #5137 : MISSING_OBJECT`** *(Tọa độ x:76, y:310)*: Bỏ sót tường đứng (`wall` #66669C).
-    - **`Issue #5136 : UNCERTAIN_BOUNDARY`** *(Tọa độ x:984, y:405)*: Thiếu mask mặt đường (`road` #804080).
+    - **`Issue #5136 : MISSING_OBJECT`** *(Tọa độ x:984, y:405)*: Bỏ sót mask mặt đường (`road` #804080).
 
 13. **[Frame 40](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=40)**:
     - **`Issue #5138 : MISSING_OBJECT`** *(Tọa độ x:910, y:402)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
@@ -89,7 +108,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 14. **[Frame 41](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=41)**:
     - **`Issue #5143 : MISSING_OBJECT`** *(Tọa độ x:38, y:416)*: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
     - **`Issue #5142 : MISSING_OBJECT`** *(Tọa độ x:865, y:544)*: Bỏ sót vỉa hè (`sidewalk` #F423E8).
-    - **`Issue #5141 : UNCERTAIN_BOUNDARY`** *(Tọa độ x:479, y:428)*: Chưa vẽ hết cây / thảm thực vật (`vegetation` #6B8E23).
+    - **`Issue #5141 : IMPROPER_BOUNDARY`** *(Tọa độ x:479, y:428)*: Chưa vẽ hết cây / thảm thực vật (`vegetation` #6B8E23).
     - **`Issue #5139 : INCORRECT_CLASS`** *(Tọa độ x:69, y:529)*: Gán nhầm người điều khiển phương tiện (`rider` #FF0000) thành người đi bộ (`person` #DC143C).
 
 15. **[Frame 42](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1615?frame=42)**:
@@ -98,7 +117,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     - **`Issue #5169 : MISSING_OBJECT`** *(Tọa độ x:84, y:423)*: Bỏ sót lề đường / vỉa hè (`sidewalk` #F423E8).
 
 - **Hướng xử lý**: 
-  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
+  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 27:** Yêu cầu tỉa trọn vẹn bề mặt `building` (#5086) và đổi nhãn 3 cột từ `building` sang `pole` (#5085, #5084, #5083).
   - **Frame 25:** Yêu cầu bóc tách và đổi nhãn hàng rào sắt từ `building` sang `fence` (#5091).
   - **Frame 28:** Đưa Mentor/Lead hỗ trợ chốt ranh giới gốc cây bị bóng che tối (#5100); Yêu cầu vẽ bổ sung hàng rào sắt (`fence` #BE9999 tại #5098) và vỉa hè (`sidewalk` #F423E8 tại #5097, #5096, #5095).
@@ -132,7 +151,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5177 : MISSING_OBJECT`** *(Tọa độ x:224, y:267)*: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
 
 3. **[Frame 9](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=9)**:
-   - **`Issue #5178 : INCORRECT_CLASS`** *(Tọa độ x:860, y:140)*: Đánh nhầm đối tượng cầu thành tòa nhà (`building` #464646). Do cầu (`bridge`) không thuộc bộ 19 nhãn quy định, Annotator không được tự ý ép vào nhãn `building`.
+   - **`Issue #5178 : EXTRA_OBJECT`** *(Tọa độ x:860, y:140)*: Đánh thừa đối tượng cầu thành tòa nhà (`building` #464646). Do cầu (`bridge`) không thuộc bộ 19 nhãn quy định, Annotator không được tự ý ép vào nhãn `building`.
 
 4. **[Frame 15](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=15)**:
    - **`Issue #5179 : INCORRECT_CLASS`** *(Tọa độ x:25, y:354)*: Đánh nhầm xe ô tô (`car` #00008E) thành người đi bộ (`person` #DC143C).
@@ -143,7 +162,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5182 : MISSING_OBJECT`** *(Tọa độ x:777, y:254)*: Bỏ sót cột / cột điện (`pole` #999999).
 
 - **Hướng xử lý**: 
-  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
+  - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 1:** Yêu cầu Annotator vẽ bổ sung cột (`pole` #999999 tại #5175).
   - **Frame 2:** Yêu cầu Annotator vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5177).
   - **Frame 9:** Yêu cầu Annotator xóa mask đối tượng cầu đang bị gắn ép sai sang nhãn tòa nhà (`building` #464646 tại #5178), vì cầu không nằm trong danh mục 19 nhãn được phép gán.
