@@ -31,9 +31,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 | Group Job             | Task ID  | Job ID   | Annotator      | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
 | :---------------------: | :--------: | :--------: | :--------------: | :------------: | :----------: | :-------------: | :-----------------: | :----------------: |
-| [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20           | 15         | 75%           | 🟡 Đang Review    | Chờ sửa Issue    |
+| [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 25           | 15         | 60%           | 🔴 Rejected       | Yêu cầu sửa lại  |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25           | 5          | 20%           | 🟡 Đang Review    | Chờ sửa Issue    |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15           | 14         | 93%           | 🟡 Đang Review    | Chờ sửa Issue    |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 25           | 21         | 84%           | 🔴 REJECTED (RẤT TỆ)| Trả lại Re-annotate |
 
 
 ---
@@ -43,7 +43,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1615
 
 - **Task ID**: 191 | **Job ID**: 1615 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 20/100 ảnh | **Số ảnh lỗi**: 15 ảnh (Frame 27, Frame 25, Frame 28, Frame 29, Frame 30, Frame 31, Frame 32, Frame 33, Frame 34, Frame 35, Frame 36, Frame 39, Frame 40, Frame 41, Frame 42)
+- **Kiểm mẫu**: 25/100 ảnh | **Số ảnh lỗi**: 15/25 ảnh (**60% ảnh lỗi**)
+- **Đánh giá chất lượng Annotator**: 🔴 **KÉM (60% ảnh lỗi)**. Annotator thường xuyên gán nhầm class (nhầm `pole`, `fence`, `traffic_sign` thành `building`), bỏ sót vỉa hè (`sidewalk`) trên diện rộng.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -133,7 +134,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1614
 
 - **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 5 ảnh (Frame 1, Frame 2, Frame 9, Frame 15, Frame 18)
+- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 5/25 ảnh (**20% ảnh lỗi**)
+- **Đánh giá chất lượng Annotator**: 🟡 **TRUNG BÌNH (20% ảnh lỗi)**. Annotator còn nhầm lẫn gán nhầm xe ô tô (`car`) thành người đi bộ (`person`), tự ý ép nhãn đối tượng ngoài scope (cầu `bridge`) vào `building`.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -164,7 +166,13 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 21/100 ảnh | **Số ảnh lỗi**: 21 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63, Frame 64, Frame 65, Frame 67, Frame 69, Frame 70, Frame 71, Frame 72, Frame 73)
+- **Kiểm mẫu**: 25/100 ảnh | **Số ảnh lỗi**: 21/25 ảnh (**84% ảnh lỗi**)
+- **Đánh giá chất lượng Annotator**: 🔴 **CỰC KỲ KÉM / QUÁ TỆ (84% ảnh lỗi - 21/25 ảnh hỏng)**.
+  - **Nhận xét chuyên môn**:
+    1. Annotator `@2A202602206` dán nhãn rất ẩu tả, thiếu trách nhiệm, bỏ sót hàng loạt vật thể cơ bản trên hầu hết các Frame (`sidewalk`, `car`, `truck`, `bus`, `traffic_light`, `traffic_sign`, `pole`, `fence`, `terrain`).
+    2. Vi phạm quy chuẩn taxonomy nghiêm trọng: Tự ý gán nhãn vạch kẻ đường (`EXTRA_OBJECT`), vẽ trùng đúp polygon (`DUPLICATE_MASK`), vẽ lem nhem lấn ranh giới (`IMPROPER_BOUNDARY`), gán nhầm xe buýt thành ô tô (`INCORRECT_CLASS`).
+    3. Thậm chí bỏ trống 100% không dán nhãn cho toàn bộ Frame 69 (`#5335`).
+  - **Kiến nghị Reviewer**: **REJECT & TRẢ LẠI JOB-1616**. Yêu cầu Annotator Re-annotate lại toàn bộ Job 1616 và đề nghị Team Leader xem xét đánh giá lại năng lực Annotator này.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -348,5 +356,5 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 73:** Yêu cầu Annotator:
     1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5349).
     2. Vẽ bổ sung các vị trí xe ô tô (`car` #00008E tại #5348) còn thiếu.
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 73 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ❌ **REJECTED (TỪ CHỐI BÀN GIAO)** ➔ Chất lượng dán nhãn của Annotator `@2A202602206` quá tệ (**84% lỗi - 21/25 ảnh hỏng**). Trả lại Job 1616 yêu cầu Re-annotate lại toàn bộ và sửa triệt để 21 ảnh lỗi trước khi gửi lại Reviewer.
 
