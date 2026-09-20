@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 5 | 33% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 6 | 40% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 5 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 6 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -222,6 +222,12 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5287 : MISSING_OBJECT`**: Bỏ sót biển báo giao thông (`traffic_sign` #DCDC00).
    - **`Issue #5288 : MISSING_OBJECT`**: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
 
+6. **[Frame 56](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=56)**:
+   - **`Issue #5291 : MISSING_OBJECT`**: Bỏ sót người đi bộ (`person` #DC143C) / người điều khiển phương tiện (`rider` #FF0000).
+   - **`Issue #5292 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5293 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5294 : MISSING_OBJECT`**: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -246,5 +252,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     1. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #5285).
     2. Vẽ bổ sung 2 biển báo giao thông (`traffic_sign` #DCDC00 tại #5286, #5287).
     3. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5288).
+  - **Frame 56:** Yêu cầu Annotator:
+    1. Vẽ bổ sung người đi bộ (`person` #DC143C / `rider` #FF0000 tại #5291).
+    2. Vẽ bổ sung 2 xe ô tô (`car` #00008E tại #5292, #5293).
+    3. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5294).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54 và Frame 55 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55 và Frame 56 trước khi bàn giao cho Team Leader.
