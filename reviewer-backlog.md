@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 8 | 53% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 9 | 60% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 8 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 9 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -242,6 +242,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 8. **[Frame 58](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=58)**:
    - **`Issue #5236 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
 
+9. **[Frame 59](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=59)**:
+   - **`Issue #5237 : MISSING_OBJECT`**: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -278,5 +281,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     5. Vẽ bổ sung toàn bộ 4 xe buýt / xe khách (`bus` #003C64 tại #5232, #5233, #5234, #5235).
   - **Frame 58:** Yêu cầu Annotator:
     1. Vẽ bổ sung xe ô tô (`car` #00008E tại #5236).
+  - **Frame 59:** Yêu cầu Annotator:
+    1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5237).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57 và Frame 58 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58 và Frame 59 trước khi bàn giao cho Team Leader.
