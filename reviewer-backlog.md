@@ -122,7 +122,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1614
 
 - **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 4 ảnh (Frame 1, Frame 2, Frame 9, Frame 15)
+- **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 5 ảnh (Frame 1, Frame 2, Frame 9, Frame 15, Frame 18)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 1](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=1)**:
@@ -139,11 +139,15 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5180 : INCORRECT_CLASS`** *(Tọa độ x:822, y:447)*: Đánh nhầm xe ô tô (`car` #00008E) thành người đi bộ (`person` #DC143C).
    - **`Issue #5181 : INCORRECT_CLASS`** *(Tọa độ x:1165, y:438)*: Đánh nhầm xe ô tô (`car` #00008E) thành người đi bộ (`person` #DC143C).
 
+5. **[Frame 18](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1614?frame=18)**:
+   - **`Issue #5182 : MISSING_OBJECT`** *(Tọa độ x:777, y:254)*: Bỏ sót cột / cột điện (`pole` #999999).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md`.
   - **Frame 1:** Yêu cầu Annotator vẽ bổ sung cột (`pole` #999999 tại #5175).
   - **Frame 2:** Yêu cầu Annotator vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5177).
   - **Frame 9:** Yêu cầu Annotator xóa mask đối tượng cầu đang bị gắn ép sai sang nhãn tòa nhà (`building` #464646 tại #5178), vì cầu không nằm trong danh mục 19 nhãn được phép gán.
   - **Frame 15:** Yêu cầu Annotator đổi nhãn cả 3 vị trí từ người đi bộ (`person` #DC143C) sang xe ô tô (`car` #00008E tại #5179, #5180, #5181).
+  - **Frame 18:** Yêu cầu Annotator vẽ bổ sung cột / cột điện (`pole` #999999 tại #5182).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1, Frame 2, Frame 9 và Frame 15 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues ở Frame 1, Frame 2, Frame 9, Frame 15 và Frame 18 trước khi bàn giao cho Team Leader.
