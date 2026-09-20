@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 9 | 60% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 10 | 67% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 9 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 10 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -245,6 +245,10 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 9. **[Frame 59](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=59)**:
    - **`Issue #5237 : MISSING_OBJECT`**: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
 
+10. **[Frame 60](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=60)**:
+    - **`Issue #5238 : DUPLICATE_MASK`**: Vẽ trùng đúp polygon / mask đè đúp lên cùng 1 vật thể.
+    - **`Issue #5239 : IMPROPER_BOUNDARY`**: Vẽ thiếu mask / chưa phủ trọn vẹn bề mặt vật thể.
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -283,5 +287,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     1. Vẽ bổ sung xe ô tô (`car` #00008E tại #5236).
   - **Frame 59:** Yêu cầu Annotator:
     1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5237).
+  - **Frame 60:** Yêu cầu Annotator:
+    1. Xóa bớt mask bị trùng đúp đè lên vật thể tại #5238.
+    2. Vẽ bổ sung phủ trọn vẹn phần mask còn thiếu tại #5239.
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58 và Frame 59 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59 và Frame 60 trước khi bàn giao cho Team Leader.
