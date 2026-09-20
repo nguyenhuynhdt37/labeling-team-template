@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 10 | 67% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 11 | 73% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 10 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 11 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -249,6 +249,10 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     - **`Issue #5238 : DUPLICATE_MASK`**: Vẽ trùng đúp polygon / mask đè đúp lên cùng 1 vật thể.
     - **`Issue #5239 : IMPROPER_BOUNDARY`**: Vẽ thiếu mask / chưa phủ trọn vẹn bề mặt vật thể.
 
+11. **[Frame 61](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=61)**:
+    - **`Issue #5312 : MISSING_OBJECT`**: Bỏ sót công trình / tòa nhà (`building` #464646).
+    - **`Issue #5313 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -290,5 +294,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 60:** Yêu cầu Annotator:
     1. Xóa bớt mask bị trùng đúp đè lên vật thể tại #5238.
     2. Vẽ bổ sung phủ trọn vẹn phần mask còn thiếu tại #5239.
+  - **Frame 61:** Yêu cầu Annotator:
+    1. Vẽ bổ sung tòa nhà / công trình (`building` #464646 tại #5312).
+    2. Vẽ bổ sung xe ô tô (`car` #00008E tại #5313).
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59 và Frame 60 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 61 trước khi bàn giao cho Team Leader.
