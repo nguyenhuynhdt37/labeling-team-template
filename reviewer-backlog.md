@@ -29,11 +29,11 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ## 📊 Bảng tổng hợp Group Job
 
 
-| Group Job             | Task ID  | Job ID   | Annotator      | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
-| :---------------------: | :--------: | :--------: | :--------------: | :------------: | :----------: | :-------------: | :-----------------: | :----------------: |
-| [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 25           | 15         | 60%           | 🔴 Rejected       | Yêu cầu sửa lại  |
-| [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25           | 5          | 20%           | 🟡 Đang Review    | Chờ sửa Issue    |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 25           | 21         | 84%           | 🔴 REJECTED (RẤT TỆ)| Trả lại Re-annotate |
+| Group Job             | Task ID  | Job ID   | Annotator                           | Ảnh kiểm mẫu | Số ảnh lỗi | Tỷ lệ lỗi (%) | Trạng thái Review | Kết quả bàn giao |
+| :---------------------: | :--------: | :--------: | :-----------------------------------: | :------------: | :----------: | :-------------: | :-----------------: | :----------------: |
+| [JOB-1614](#job-1614) | Task 191 | Job 1614 | `T018-PHAN QUỐC TUẤN-02298`         | 25           | 5          | 20%           | 🟡 Đang Review    | Chờ sửa Issue    |
+| [JOB-1615](#job-1615) | Task 191 | Job 1615 | `T018-LÊ ĐỨC MINH QUÂN-02126`       | 25           | 15         | 60%           | 🔴 Rejected       | Yêu cầu sửa lại  |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `T018-PHÙNG THẢO AN-02331`          | 25           | 21         | 84%           | 🔴 REJECTED (RẤT TỆ)| Trả lại Re-annotate |
 
 
 ---
@@ -42,9 +42,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 ### JOB-1615
 
-- **Task ID**: 191 | **Job ID**: 1615 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Task ID**: 191 | **Job ID**: 1615 | **Annotator**: `T018-LÊ ĐỨC MINH QUÂN-02126` | **Reviewer**: `@huynh`
 - **Kiểm mẫu**: 25/100 ảnh | **Số ảnh lỗi**: 15/25 ảnh (**60% ảnh lỗi**)
-- **Đánh giá chất lượng Annotator**: 🔴 **KÉM (60% ảnh lỗi)**. Annotator thường xuyên gán nhầm class (nhầm `pole`, `fence`, `traffic_sign` thành `building`), bỏ sót vỉa hè (`sidewalk`) trên diện rộng.
+- **Đánh giá chất lượng Annotator**: 🔴 **KÉM (60% ảnh lỗi)**. Annotator `T018-LÊ ĐỨC MINH QUÂN-02126` thường xuyên gán nhầm class (nhầm `pole`, `fence`, `traffic_sign` thành `building`), bỏ sót vỉa hè (`sidewalk`) trên diện rộng.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -133,9 +133,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 ### JOB-1614
 
-- **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Task ID**: 191 | **Job ID**: 1614 | **Annotator**: `T018-PHAN QUỐC TUẤN-02298` | **Reviewer**: `@huynh`
 - **Kiểm mẫu**: 25/125 ảnh | **Số ảnh lỗi**: 5/25 ảnh (**20% ảnh lỗi**)
-- **Đánh giá chất lượng Annotator**: 🟡 **TRUNG BÌNH (20% ảnh lỗi)**. Annotator còn nhầm lẫn gán nhầm xe ô tô (`car`) thành người đi bộ (`person`), tự ý ép nhãn đối tượng ngoài scope (cầu `bridge`) vào `building`.
+- **Đánh giá chất lượng Annotator**: 🟡 **TRUNG BÌNH (20% ảnh lỗi)**. Annotator `T018-PHAN QUỐC TUẤN-02298` còn nhầm lẫn gán nhầm xe ô tô (`car`) thành người đi bộ (`person`), tự ý ép nhãn đối tượng ngoài scope (cầu `bridge`) vào `building`.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -165,14 +165,14 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 
 ### JOB-1616
 
-- **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
+- **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `T018-PHÙNG THẢO AN-02331` | **Reviewer**: `@huynh`
 - **Kiểm mẫu**: 25/100 ảnh | **Số ảnh lỗi**: 21/25 ảnh (**84% ảnh lỗi**)
 - **Đánh giá chất lượng Annotator**: 🔴 **CỰC KỲ KÉM / QUÁ TỆ (84% ảnh lỗi - 21/25 ảnh hỏng)**.
   - **Nhận xét chuyên môn**:
-    1. Annotator `@2A202602206` dán nhãn rất ẩu tả, thiếu trách nhiệm, bỏ sót hàng loạt vật thể cơ bản trên hầu hết các Frame (`sidewalk`, `car`, `truck`, `bus`, `traffic_light`, `traffic_sign`, `pole`, `fence`, `terrain`).
+    1. Annotator `T018-PHÙNG THẢO AN-02331` dán nhãn rất ẩu tả, thiếu trách nhiệm, bỏ sót hàng loạt vật thể cơ bản trên hầu hết các Frame (`sidewalk`, `car`, `truck`, `bus`, `traffic_light`, `traffic_sign`, `pole`, `fence`, `terrain`).
     2. Vi phạm quy chuẩn taxonomy nghiêm trọng: Tự ý gán nhãn vạch kẻ đường (`EXTRA_OBJECT`), vẽ trùng đúp polygon (`DUPLICATE_MASK`), vẽ lem nhem lấn ranh giới (`IMPROPER_BOUNDARY`), gán nhầm xe buýt thành ô tô (`INCORRECT_CLASS`).
     3. Thậm chí bỏ trống 100% không dán nhãn cho toàn bộ Frame 69 (`#5335`).
-  - **Kiến nghị Reviewer**: **REJECT & TRẢ LẠI JOB-1616**. Yêu cầu Annotator Re-annotate lại toàn bộ Job 1616 và đề nghị Team Leader xem xét đánh giá lại năng lực Annotator này.
+  - **Kiến nghị Reviewer**: **REJECT & TRẢ LẠI JOB-1616**. Yêu cầu Annotator `T018-PHÙNG THẢO AN-02331` Re-annotate lại toàn bộ Job 1616 và đề nghị Team Leader xem xét đánh giá lại năng lực Annotator này.
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -356,5 +356,5 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 73:** Yêu cầu Annotator:
     1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5349).
     2. Vẽ bổ sung các vị trí xe ô tô (`car` #00008E tại #5348) còn thiếu.
-- **Kết luận**: ❌ **REJECTED (TỪ CHỐI BÀN GIAO)** ➔ Chất lượng dán nhãn của Annotator `@2A202602206` quá tệ (**84% lỗi - 21/25 ảnh hỏng**). Trả lại Job 1616 yêu cầu Re-annotate lại toàn bộ và sửa triệt để 21 ảnh lỗi trước khi gửi lại Reviewer.
+- **Kết luận**: ❌ **REJECTED (TỪ CHỐI BÀN GIAO)** ➔ Chất lượng dán nhãn của Annotator `T018-PHÙNG THẢO AN-02331` quá tệ (**84% lỗi - 21/25 ảnh hỏng**). Trả lại Job 1616 yêu cầu Re-annotate lại toàn bộ và sửa triệt để 21 ảnh lỗi trước khi gửi lại Reviewer.
 
