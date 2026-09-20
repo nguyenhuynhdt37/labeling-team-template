@@ -245,6 +245,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - `**Issue #5324 : MISSING_OBJECT**`: Bỏ sót địa hình / đất đá tuyết (`terrain` #9405D3).
   - `**Issue #5325 : MISSING_OBJECT**`: Bỏ sót địa hình / đất đá tuyết (`terrain` #9405D3).
   - `**Issue #5327 : MISSING_OBJECT**`: Bỏ sót cột / cột đèn / cột điện (`pole` #999999).
+  - `**Issue #5328 : MISSING_OBJECT**`: Bỏ sót tường / bờ tường (`wall` #666666).
+  - `**Issue #5329 : MISSING_OBJECT**`: Bỏ sót tường / bờ tường (`wall` #666666).
+  - `**Issue #5330 : MISSING_OBJECT**`: Bỏ sót xe buýt / xe khách (`bus` #003C64).
 
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
@@ -302,6 +305,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - **Frame 65:** Yêu cầu Annotator:
     1. Tỉa lại ranh giới mask bầu trời (`sky` #708090 tại #5326), cắt tỉa phần lem nhem lấn vào cây (`vegetation`).
     2. Vẽ bổ sung địa hình / đất đá tuyết (`terrain` #9405D3 tại #5324, #5325).
-    3. Vẽ bổ sung toàn bộ các vị trí cột / cột đèn / cột điện (`pole` #999999 tại #5327) còn thiếu trên ảnh.
+    3. Vẽ bổ sung các vị trí cột / cột đèn / cột điện (`pole` #999999 tại #5327) còn thiếu.
+    4. Vẽ bổ sung tường / bờ tường (`wall` #666666 tại #5328, #5329).
+    5. Vẽ bổ sung xe buýt / xe khách (`bus` #003C64 tại #5330).
 - **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 65 trước khi bàn giao cho Team Leader.
 
