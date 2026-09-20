@@ -164,7 +164,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 20/100 ảnh | **Số ảnh lỗi**: 20 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63, Frame 64, Frame 65, Frame 67, Frame 69, Frame 70, Frame 71, Frame 72)
+- **Kiểm mẫu**: 21/100 ảnh | **Số ảnh lỗi**: 21 ảnh (Frame 50, Frame 52, Frame 53, Frame 54, Frame 55, Frame 56, Frame 57, Frame 58, Frame 59, Frame 60, Frame 61, Frame 62, Frame 63, Frame 64, Frame 65, Frame 67, Frame 69, Frame 70, Frame 71, Frame 72, Frame 73)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 
@@ -268,6 +268,9 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
   - `**Issue #5344 : MISSING_OBJECT**`: Bỏ sót người đi bộ (`person` #DC143C).
   - `**Issue #5346 : MISSING_OBJECT**`: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
   - `**Issue #5347 : MISSING_OBJECT**`: Bỏ sót xe tải (`truck` #000046).
+21. [**Frame 73**](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=73):
+  - `**Issue #5349 : MISSING_OBJECT**`: Bỏ sót vỉa hè / lề đường (`sidewalk` #F423E8).
+  - `**Issue #5348 : MISSING_OBJECT**`: Bỏ sót xe ô tô (`car` #00008E).
 
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
@@ -342,5 +345,8 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     1. Vẽ bổ sung người đi bộ (`person` #DC143C tại #5344).
     2. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #5346).
     3. Vẽ bổ sung xe tải (`truck` #000046 tại #5347).
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 72 trước khi bàn giao cho Team Leader.
+  - **Frame 73:** Yêu cầu Annotator:
+    1. Vẽ bổ sung vỉa hè / lề đường (`sidewalk` #F423E8 tại #5349).
+    2. Vẽ bổ sung các vị trí xe ô tô (`car` #00008E tại #5348) còn thiếu.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues từ Frame 50 đến Frame 73 trước khi bàn giao cho Team Leader.
 
