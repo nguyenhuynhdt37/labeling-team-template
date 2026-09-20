@@ -30,7 +30,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [JOB-1615](#job-1615) | Task 191 | Job 1615 | `@2A202602206` | 20 | 15 | 75% | 🟡 Đang Review | Chờ sửa Issue |
 | [JOB-1614](#job-1614) | Task 191 | Job 1614 | `@2A202602206` | 25 | 5 | 20% | 🟡 Đang Review | Chờ sửa Issue |
-| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 1 | 7% | 🟡 Đang Review | Chờ sửa Issue |
+| [JOB-1616](#job-1616) | Task 191 | Job 1616 | `@2A202602206` | 15 | 2 | 13% | 🟡 Đang Review | Chờ sửa Issue |
 
 ---
 
@@ -178,7 +178,7 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
 ### JOB-1616
 
 - **Task ID**: 191 | **Job ID**: 1616 | **Annotator**: `@2A202602206` | **Reviewer**: `@huynh`
-- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 1 ảnh (Frame 50)
+- **Kiểm mẫu**: 15/100 ảnh | **Số ảnh lỗi**: 2 ảnh (Frame 50, Frame 52)
 
 #### Minh chứng lỗi phát hiện / Issue tồn đọng:
 1. **[Frame 50](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=50)**:
@@ -196,6 +196,12 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
    - **`Issue #5208 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
    - **`Issue #5209 : EXTRA_OBJECT`**: Đánh thừa vạch kẻ đường / line đường (không nằm trong danh mục 19 nhãn quy định).
 
+2. **[Frame 52](https://cvat.note.transformerlabs.ai/tasks/191/jobs/1616?frame=52)**:
+   - **`Issue #5079 : MISSING_OBJECT`**: Bỏ sót cây / thảm thực vật (`vegetation` #6B8E23).
+   - **`Issue #1747 : MISSING_OBJECT`**: Bỏ sót đèn giao thông (`traffic_light` #FAAA1E).
+   - **`Issue #1750 : MISSING_OBJECT`**: Bỏ sót xe ô tô (`car` #00008E).
+   - **`Issue #5211 : MISSING_OBJECT`**: Bỏ sót không đánh nhãn người đi bộ (`person` #DC143C) / người điều khiển phương tiện (`rider` #FF0000).
+
 - **Hướng xử lý**: 
   - Đối chiếu nhãn chuẩn theo `Semantic_Segmentation_Taxonomy_Translation.md` và Bảng Mã Issue Tags quy chuẩn.
   - **Frame 50:** Yêu cầu Annotator:
@@ -203,5 +209,10 @@ Nhật ký kiểm định chất lượng (QA/QC Audit) và danh sách dồn t�
     2. Vẽ bổ sung toàn bộ 4 xe ô tô (`car` #00008E tại #5185, #5186, #5187, #5188).
     3. Tỉa và vẽ phủ trọn vẹn đèn giao thông (`traffic_light` #FAAA1E tại #5189, #5190).
     4. Xóa toàn bộ mask vạch kẻ / line đường đang bị đánh thừa (`#5205`, `#5206`, `#5207`, `#5208`, `#5209`), do vạch kẻ đường không nằm trong danh mục 19 nhãn được phép gán nhãn riêng.
+  - **Frame 52:** Yêu cầu Annotator:
+    1. Vẽ bổ sung cây / thảm thực vật (`vegetation` #6B8E23 tại #5079).
+    2. Vẽ bổ sung đèn giao thông (`traffic_light` #FAAA1E tại #1747).
+    3. Vẽ bổ sung xe ô tô (`car` #00008E tại #1750).
+    4. Vẽ bổ sung toàn bộ người đi bộ (`person` #DC143C) / người lái xe (`rider` #FF0000) còn thiếu trên ảnh.
 
-- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa 13 Issues tại Frame 50 trước khi bàn giao cho Team Leader.
+- **Kết luận**: ⏳ **ĐANG REVIEW** ➔ Chờ Annotator sửa các Issues tại Frame 50 và Frame 52 trước khi bàn giao cho Team Leader.
